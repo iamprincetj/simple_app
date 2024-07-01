@@ -8,7 +8,11 @@ const app = express();
 app.set("trust proxy", true);
 app.get("/api/hello", async (req, res) => {
   const { visitor_name } = req.query;
-  const userIP = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+  let userIP = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
+  if (userIP.includes(",")) {
+    userIP = userIP.split(",")[0];
+  }
+  console.log(userIP);
   const country = await getCity(userIP);
   const city = country.region_name;
 
