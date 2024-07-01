@@ -12,7 +12,6 @@ app.get("/api/hello", async (req, res) => {
   if (userIP.includes(",")) {
     userIP = userIP.split(",")[0];
   }
-  console.log(userIP);
   const country = await getCity(userIP);
   const city = country.region_name;
 
@@ -26,7 +25,7 @@ app.get("/api/hello", async (req, res) => {
   });
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
