@@ -9,7 +9,7 @@ app.set("trust proxy", true);
 app.get("/api/hello", async (req, res) => {
   const { visitor_name } = req.query;
   const userIP = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-  const country = await getCity();
+  const country = await getCity(userIP);
   const city = country.region_name;
 
   const weather = await getWeather(city);
