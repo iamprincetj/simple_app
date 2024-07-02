@@ -1,7 +1,17 @@
-### Simple App
+# Simple API
 
-# Git Clone
+# git clone the repository
 
-# npm install
+`git clone (https://github.com/iamprincetj/simple_app.git)`
 
-# npm run start
+# Change Directory
+
+`cd simple_app/`
+
+# Install app's dependencies
+
+`npm install`
+
+# run the api
+
+`npm run start`
